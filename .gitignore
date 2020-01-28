@@ -1,0 +1,5 @@
+#ignore key and pem files; don't need these public
+*.key
+*.pem
+#ignore db files too
+*.db
