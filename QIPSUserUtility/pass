@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Get input from user and assign input to variable password
+read -s password
+
+echo $password >&2
+
+stty echo

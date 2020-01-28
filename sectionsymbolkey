@@ -1,0 +1,11 @@
+This is a key for every "symbol" used to create "sections" in the QIPS application.
+This can be used as a reference for future debugging/understanding of the code.
+Will update as necessary. 
+sjh1024 1-3-18
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<//>: terminator for individual lines of data from client to server
+<%>: Used to divide individual items of data from client to server, such as ipsets and ip addresses. This makes it easier for the server to understand the data needed to update in the SQLite database, to understand which entry it needs to look for in the database.
+<&&>: Used by client when refreshing. This symbol separates the "getallblocked" command from the last refresh time (or the word "first", if this is the client's first refresh). This time is important to make sure that only new entries since last refresh are appended to the client's block list.
+,: Only used in blocking IPs in the client. It's just a separator to know which entry to block and in what ipset.
+<!!>: Separates the primary key in SQLite database entries from the rest of the data, which is what the user wants to see. This makes it easier to only send "meaningful" data to the user upon refresh. 
+<***>: Used in server replies to the client to separate entries from stats.

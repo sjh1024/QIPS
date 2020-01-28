@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+#bash script that automatically adds a lot of entries to the QIPS database and ipset.
+#It is to only be used for testing. sjh1024 2-3-19
+for i in `seq 1 255`
+do
+	addr="$i.$i.$i.$i"	
+	sudo /usr/sbin/ipset -A spamhaus $addr
+	sudo /usr/bin/sqlite3 /usr/local/honeypot/bin/db/qips.db "insert into ipset (timestamp, ipaddress, reporter, process, ipset, deleteFlag) values ('`/bin/date \"+%Y-%m-%d %H:%M:%S\"`','$addr','test','test','spamhaus', 0)"
+done

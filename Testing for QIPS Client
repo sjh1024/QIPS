@@ -1,0 +1,59 @@
+Testing for QIPSClient
+sjh1024 1-4-19
+
+The following is a list of hand-done tests that should be run through upon significant changes to the QIPS Client.
+Please conduct them to ensure functionality is not lost upon updates.
+
+1. Adds to all ipsets are successful to database AND ipset.
+*Make sure statistics are updated correctly. 
+2. Removals from all ipsets are successful to database AND ipset.
+*Make sure statistics are updated correctly.
+3. Moves between all ipsets are successful...
+	* spamhaus->honeypot
+	* spamhaus->user-defined
+	* spamhaus->unh
+	* honeypot->spamhaus
+	* honeypot->user-defined
+	* honeypot->unh
+	* user-defined->spamhaus
+	* user-defined->honeypot
+	* user-defined->unh
+	* unh->user-defined
+	* unh->spamhaus
+	* unh->honeypot
+*Make sure statistics are being updated correctly
+4. Renewals are successful in:
+	* spamhaus
+	* honeypot
+	* unh
+	* user-defined
+5. Whitelist IPs will fail to add
+	*CRaTER
+	*Blackstar
+	*assessment-agent
+	*spork/protocore
+	*Applecore
+	*ron.sr.unh.edu (2)
+	*UNH Wireless
+	*UNH Mail Servers
+	*RCC Routers
+	*RCC HIDS
+	*The Internet
+*Statistics should not change
+*Database should not change
+*ipset should not change
+*Test with all ipsets:
+	*spamhaus
+	*honeypot
+	*user-defined
+	*unh
+
+6. Scrolling still works as intended
+	* scroll up a bit from current position each time a new entry appears, sort of like they're "stacking" up.
+7. Duplicate adds do not persist in the database
+	* spamhaus
+	* honeypot
+	* unh
+	* user-defined
+	NOTE: ipset will not allow duplicate addresses, so you don't need to check ipset tables in this step.
+
